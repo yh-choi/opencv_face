@@ -10,7 +10,7 @@ import dlib
 import cv2
 import datetime
 second=0
-number1=0
+ear = 0.2
 def eye_aspect_ratio(eye):
 	
 	A = dist.euclidean(eye[1], eye[5])
@@ -84,9 +84,8 @@ while True:
 			
 			if COUNTER >= EYE_AR_CONSEC_FRAMES:
 				TOTAL += 1
- 
-		
-			COUNTER = 0    
+			COUNTER = 0
+        
     
 		#cv2.putText(frame, "Blinks: {}".format(TOTAL), (10, 30),
 		#	cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
@@ -115,7 +114,8 @@ while True:
                           cv2 . FONT_HERSHEY_SIMPLEX ,   0.5 ,   ( 0 ,   255 ,   0 ) ,   2 ) 
             for ( x ,y ) in shape :
                 cv2.circle ( frame ,( x , y ) , 1 ,( 0 ,   0 ,   255 ) ,   - 1 )
-                
+         
+           
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(10) & 0xFF
  
